@@ -16,7 +16,9 @@ ch.setLevel(logging.DEBUG)
 fh.setLevel(logging.DEBUG)
 
 # create formatter
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+#formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+# create formatter
+formatter = logging.Formatter("%(asctime)s- %(levelname)s - %(filename)s-%(lineno)s - %(message)s")
 # add formatter to ch
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
@@ -237,118 +239,118 @@ logger.info((list_of_data))
 list_of_data.append(list_of_names)
 logger.info(list_of_data)
 logger.info(list_of_data[1])
-#
-# list_of_data.append("Hello world")
-# logger.info((list_of_data))
+
+list_of_data.append("Hello world")
+logger.info((list_of_data))
+logger.info(list_of_data[-1].split())
+logger.info(list_of_data[-1].split()[1])
+
+logger.info(list_of_data[-1]) # "Hello world"[list_of_data[-1].rfind(" "):]
 # logger.info(list_of_data[-1].split())
 # logger.info(list_of_data[-1].split()[1])
 #
-# logger.info(list_of_data[-1]) # "Hello world"[list_of_data[-1].rfind(" "):]
-# logger.info(list_of_data[-1].split())
-# logger.info(list_of_data[-1].split()[1])
-#
-# dict1 = {"lang1":"python",
-#          "lang2":"java"}
-#
-#
-# list_of_data.append(dict1)
-# logger.info(list_of_data)
-# logger.info(list_of_data[3]["lang1"])
+dict1 = {"lang1":"python",
+         "lang2":"java"}
+
+
+list_of_data.append(dict1)
+logger.info(list_of_data)
+logger.info(list_of_data[3]["lang1"])
 # #pprint.pprint(list_of_data)
-# logger.info(list_of_data[3]["lang1"][-1])
-#
-# list_of_data.insert(0, 2000)
-# #pprint.pprint(list_of_data)
-#
-# #pprint.pprint(list_of_data[2])
-# list_of_data.insert(2, "New Data")
-# #pprint.pprint(list_of_data)
-#
-#
-# new_list_data = ["network1","network2","network3"]
-#
-# list_of_data.append(new_list_data)
-# logger.info(list_of_data)
-#
-# list_of_data.pop(-1)
+logger.info(list_of_data[3]["lang1"][-1])
+
+list_of_data.insert(0, 2000)  #for insert you have to mention the index no where to add the data
+logger.info(list_of_data)
+# pprint.pprint(list_of_data)
+# pprint.pprint(list_of_data[2])
+
+list_of_data.insert(2, "New Data")
+# pprint.pprint(list_of_data)
+logger.info(list_of_data)
+
+
+new_list_data = ["network1","network2","network3"]
+list_of_data.append(new_list_data)
+logger.info(list_of_data)
+
+list_of_data.pop(-1)
+logger.info(list_of_data)
 # new_modify = list_of_data + new_list_data
 # logger.info(new_modify)
 # logger.info(list_of_data)
+
+new_modify = list_of_data + new_list_data # O(n) + O(k)  # O(K)
+logger.info(new_modify)
+logger.info(list_of_data)
+
+list_of_data.extend(new_list_data) # O(K), here each obhect in list is added as individual object, not as a nested list
+logger.info(list_of_data)
+
+
+list_of_data.clear()
+logger.info(list_of_data)
+
+list_of_data.extend(dict1)
+logger.info(list_of_data)
+
+list_of_data.remove('lang1')
+list_of_data.remove('lang2')
+logger.info(list_of_data)
+
+list_of_data.append(dict1)
+logger.info(list_of_data)
+
+list_of_data.pop()
+logger.info(list_of_data)
+list_of_data.extend(dict1)
+logger.info(list_of_data)
+list_of_data.pop(0) # pop() or pop(-1 or len(list)-1) pop will remove last index if parenthysis does mot mwntion the index no to remove
+logger.info(list_of_data)
+
+list_of_data.clear()
+logger.info(list_of_data)
+
+list_of_data.extend(dict1)
+logger.info(list_of_data)
+logger.info(list_of_data.index("lang1"))
+logger.info(list_of_data.index("lang2"))
+list_of_data.remove("lang1") #remove needs the item to remove ,
+logger.info(list_of_data)
+list_of_data.remove("lang2") #remove needs the item to remove ,
+logger.info(list_of_data)
+
+list_of_data.append(dict1)
+logger.info(list_of_data)
+list_of_data.remove(dict1)
+logger.info(list_of_data)
+
 #
-#
-# new_list_data = ["network1","network2","network3"]
-#
-# list_of_data.append(new_list_data)
-# logger.info(list_of_data)
-#
-# list_of_data.pop(-1)
-# new_modify = list_of_data + new_list_data # O(n) + O(k)  # O(K)
-# logger.info(new_modify)
-# logger.info(list_of_data)
-#
-#
-#
-#
-#
-# list_of_data.extend(new_list_data) # O(K)
-# logger.info(list_of_data)
-#
-#
-# list_of_data.clear()
-# logger.info(list_of_data)
-#
-# list_of_data.extend(dict1)
-# logger.info(list_of_data)
-#
-# list_of_data.remove('lang1')
-# list_of_data.remove('lang2')
-# logger.info(list_of_data)
-#
-# list_of_data.append(dict1)
-# logger.info(list_of_data)
-#
-# list_of_data.pop()
-# logger.info(list_of_data)
-# list_of_data.extend(dict1)
-# logger.info(list_of_data)
-# list_of_data.pop(0) # pop() pop(-1 or len(list)-1)
-# logger.info(list_of_data)
-#
-# list_of_data.clear()
-#
-# list_of_data.extend(dict1)
-# logger.info(list_of_data)
-# logger.info(list_of_data.index("lang1"))
-# logger.info(list_of_data.index("lang2"))
-#
-# logger.info(list_of_data.count('lang1'))
-# logger.info(list_of_data.count(2000))
-#
+logger.info(list_of_data.count('lang1'))
+logger.info(list_of_data.count(2000))
+
 # new_list = [20,2,4, 70,9, 12,5]
 # new_list.sort() # without reverse , sorted in ascending order else decending order
 # logger.info(new_list)
 #
 # new_data = ["xx", "yy", "ab", "dn"] # x y a d  # a d x y # y x d a # yy xx dn ab
 # new_data.sort(reverse=True)
-#
 # logger.info(new_data)
 #
-# logger.info(new_data)
 #
 # new_data.sort() # x y a d  # a d x y # ab dn xx yy
 # logger.info(new_data)
-# new_data.sort(key=lambda item: item[1])
+# new_data.sort(key=lambda item: item[1])  #x y b n #b n x y #ab dn xx yy
 # logger.info(new_data)
 #
 # list_of_emails = ["xa@gmail.com", "ac@yahoo.com","zb@gmail.com"]
 # list_of_emails.sort() # ac@yahoo.co, xa@gmail.com zb@gmail.com
+# logger.info(list_of_emails)
 # list_of_emails.sort(key=lambda item:item[0])
 # logger.info(list_of_emails)
 #
 # list_of_emails.sort(key=lambda item: item[1]) #  [ 'a', 'c', 'b']  #
 # logger.info(list_of_emails) # xa@gmail.com zb@gmail.com ac@yahoo.com
-#
-#
+
 # def key_to_compare(item):
 #     return item[1]
 #
@@ -408,3 +410,189 @@ logger.info(list_of_data[1])
 #
 # list_of_employees.sort(key=key_to_compare_dict)
 # logger.info(list_of_employees)
+
+######################reverse######################
+
+list_of_numbers = [23, 1, 45, 6, 7]
+logger.info(list_of_numbers[::-1]) # [7, 6, 45, 1, 23]
+logger.info(list_of_numbers)  # [23, 1, 45, 6, 7]    
+list_of_numbers.reverse()     # [7, 6, 45, 1, 23]      
+logger.info(list_of_numbers)
+
+######################dict_datatype methods#######################
+#logger.info(dir(dict))  #####'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values'
+
+list_of_keys =["emp_name","emp_id"]
+emp_data = dict.fromkeys(list_of_keys, None)
+#emp_data = dict.fromkeys(list_of_keys, 2)
+logger.info(emp_data)
+#help(dict.fromkeys)
+
+
+
+logger.info(emp_data["emp_name"]) # value using key
+# logger.info(emp_data["emp_address"])
+logger.info(emp_data.get("emp_name"))
+logger.info(emp_data.get("emp_address", "No Key Found"))
+help(emp_data.get)
+
+logger.info(emp_data["emp_name"]) # value using key
+# logger.info(emp_data["emp_address"])
+logger.info(emp_data.get("emp_name"))
+logger.info(emp_data.get("emp_address", "No Key Found"))
+#help(emp_data.get)
+
+emp_data["emp_name"] = "xx"
+logger.info(emp_data["emp_name"])
+logger.info(emp_data.setdefault("emp_name")) # emp_data.get("emp_name")
+logger.info(emp_data.setdefault("emp_address","12/A, India"))
+logger.info(emp_data.get("emp_address"))
+
+# dict.keys() -> [key1, key2,...]
+# dict.values() -> [ value1, value2,... ]
+# dict.items() -> [ (key1, value1), (key2, value2) ...]
+logger.info(emp_data.keys())
+logger.info(emp_data.values())
+logger.info(emp_data.items())
+
+logger.info(emp_data.setdefault("emp_id", "12"))   ##set default only applicable for keys do not exist in dict
+logger.info(emp_data)
+
+emp_data["emp_id"] = 12341
+logger.info(emp_data.items())
+
+new_data = {"emp_name":"new_xx", "emp_id":1234, "emp_dob":"12/05/1990"}
+emp_data.update(new_data)
+logger.info(emp_data)
+
+logger.info(emp_data.pop("emp_id"))    ####value of removed key
+logger.info(emp_data)
+
+logger.info(emp_data)
+logger.info(emp_data.popitem()) # (key, value)
+# help(emp_data.popitem)
+logger.info(emp_data)
+emp_data.clear()
+logger.info(emp_data)
+
+
+###########################set###############################
+
+##add', 'clear', 'copy', 'difference', '
+# difference_update', 'discard', 'intersection',
+# 'intersection_update', 'isdisjoint', 'issubset',
+# 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update'
+
+logger.info(dir(set))
+data_set = set()
+logger.info(data_set)
+data_set.add(123)
+data_set.add(243)
+logger.info(data_set)
+new_data_set = {23, 124, 123, 24, 'k'}
+data_set.update(new_data_set)
+logger.info(data_set)
+
+logger.info(data_set.difference(new_data_set)) # data_set - new_data_set
+logger.info(data_set.intersection(new_data_set)) # data_set matches in new_data_set
+logger.info(data_set.union(new_data_set))        # data_set + new_data_set
+logger.info(data_set.symmetric_difference(new_data_set))
+#  data_section (not in intersection) + new_data_set (not in intersection) =
+
+
+################################################11thSept_data_set############################################################
+logger.info(dir(set))
+data_set = set()
+logger.info(data_set)
+data_set.add(123)
+data_set.add(243)
+logger.info(data_set)
+new_data_set = {23, 124, 123, 24}
+# data_set.update(new_data_set)     # data_set = data_set + new_data_set
+logger.info(data_set)
+logger.info(data_set.difference(new_data_set)) # data_set - new_data_set
+logger.info(new_data_set.difference(data_set))
+logger.info(data_set.intersection(new_data_set)) # data_set matches in new_data_set
+logger.info(data_set.union(new_data_set))        # data_set + new_data_set
+logger.info(data_set.symmetric_difference(new_data_set))
+logger.info(new_data_set.symmetric_difference(data_set))
+data_set.intersection_update(new_data_set)
+logger.info(data_set)
+
+
+
+# data_set- new_data_set + (new_data_set - data-set)
+#  data_section (not in intersection) + new_data_set (not in intersection) =
+#
+# data_set.update(new_data_set)
+# logger.info(data_set)
+# data_set.difference_update(new_data_set)  # data_set = data_set - new_data_set
+# logger.info(data_set)
+# data_set.intersection_update(new_data_set)  # data_set = intersection (data_set and new_data_set)
+# logger.info(data_set)
+# # data_set = Union(dataset and new_data_set) - Intersection(dataset and new_data_set)
+# data_set.symmetric_difference_update(new_data_set)
+#
+# logger.info(data_set)
+# #
+# logger.info(data_set.issubset(new_data_set))
+# logger.info(data_set.issuperset(new_data_set))
+# logger.info(data_set.isdisjoint(new_data_set))
+# #
+
+logger.info({1,2,3}.issubset({1,2,3,4}))
+logger.info({1,2,3,4}.issuperset({1,2,3}))
+logger.info({30,40,60}.isdisjoint({1,2,3}))
+# #
+# set1 = {1, 2,3}
+# set2 = {4, 5, 6}
+# logger.info(set1.isdisjoint(set2))
+
+
+logger.info({1,2,3}.issubset({1,2,3,4}))
+logger.info({1,2,3,4}.issuperset({1,2,3}))
+logger.info({30,40,60}.isdisjoint({1,2,3}))
+
+logger.info({1,2,3}.issubset({1,2,3,4}))
+logger.info({1,2,3,4}.issuperset({1,2,3}))
+logger.info({30,40,60}.isdisjoint({1,2,3}))
+# #
+# set1 = {1, 2,3}
+# set2 = {4, 5, 6}
+# logger.info(set1.isdisjoint(set2))
+#
+# {123, 243}
+logger.info(data_set.pop()) # retuns data
+#help(data_set.pop)
+# logger.info(data_set.remove(124))
+#help(data_set.remove)
+logger.info(data_set)
+logger.info(data_set.discard(124))
+
+
+
+############################frozenset###################################
+logger.info(dir(frozenset))
+fz = frozenset("python")
+logger.info(fz)
+fz = frozenset([1,2,3, 4,5,2])
+logger.info(fz)
+
+
+####################################################
+list_of_data = [1234,234, 456,43, ["xx", "yy"]]
+# new_data = list_of_data
+new_data = list_of_data.copy()
+new_data.append(100)
+logger.info(list_of_data)
+logger.info(new_data)
+new_data[4].remove("yy")
+logger.info(list_of_data)
+logger.info(new_data)
+
+
+# output
+# 2018-09-11 08:10:34,337- INFO - datatypemethods_class.py-579 - [1234, 234, 456, 43, ['xx', 'yy']]
+# 2018-09-11 08:10:34,338- INFO - datatypemethods_class.py-580 - [1234, 234, 456, 43, ['xx', 'yy'], 100]
+# 2018-09-11 08:10:34,338- INFO - datatypemethods_class.py-582 - [1234, 234, 456, 43, ['xx']]
+# 2018-09-11 08:10:34,338- INFO - datatypemethods_class.py-583 - [1234, 234, 456, 43, ['xx'], 100]
