@@ -1,12 +1,15 @@
 """ This module is used to practice comments """
 import argparse
+from util.logger import get_logger
+
+#logger = get_logger()
 
 c = """this module is used
 to"""
-print(c)
+#logger.info(c)
 d = "this is module is used " \
     "to"
-print(d)
+#logger.info(d)
 
 
 
@@ -60,3 +63,11 @@ def get_conn(a, b):
     """
 
 # main()
+
+#__main__(private). other modules cant access that function
+#_main
+#__main
+
+# __variable__  # Inbuilt variable
+# _variable     # Private variable
+# __variable    # Protected variable 
